@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review Page</title>
+</head>
+<body style="background-color : rgb(255, 187, 139)">
+<div class="header" align="center">
+    <h1>Reviews</h1>
+    <table cellspacing="0" style="border: 1px solid black">
+        <tr style="height:100px border: 1px solid black ">
+          <th style="width:20%; border: 1px solid black;">Product</th>
+          <th style="width:20%; border: 1px solid black;" >Name</th>
+          <th style="width:20%; border: 1px solid black;">Rating</th>
+          <th style="width:20%; border: 1px solid black;">Comment Heading</th>
+          <th style="width:20%; border: 1px solid black;">Comments</th>
+        </tr>
+        {%for i in review%}
+        <tr style="height:100px">
+            <td style="border: 1px solid black" align="center">{{i['Product']}}</td>
+            <td style="border: 1px solid black" align="center">{{i['Name']}}</td>
+            <td style="border: 1px solid black" align="center">{{i['Rating']}}</td>
+            <td style="border: 1px solid black" align="center">{{i['Comment Heading']}}</td>
+            <td style="border: 1px solid black" align="center">{{i['Comments']}}</td>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
