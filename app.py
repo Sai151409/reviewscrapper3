@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from flask_cors import cross_origin
+from flask_cors import CORS, cross_origin
 from bs4 import BeautifulSoup as bs
 import requests
 from urllib.request import urlopen as uReq
@@ -14,7 +14,7 @@ def home_page():
     return render_template('index.html')
 
 
-@app.route('/review', methods=['GET', 'POST'])
+@app.route('/review', methods=['POST', 'GET'])
 @cross_origin()
 def review():
     if request.method == 'POST':
@@ -43,7 +43,7 @@ def review():
                 except:
                     Name = 'No Name'
                 try:
-                    Rating = comments[0].div.div.div.div.text
+                    Rating = comments[i].div.div.div.div.text
                 except:
                     Rating = 'No Rating'
                 try:
@@ -70,4 +70,4 @@ def review():
 
 
 if __name__ == '__main__':
-    app.run(port=2705)
+    app.run(port=2705, debug=True)
